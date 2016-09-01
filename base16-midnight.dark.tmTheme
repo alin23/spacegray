@@ -4,8 +4,27 @@
   'http://www.apple.com/DTDs/PropertyList-1.0.dtd'>
 <plist version="1.0">
 	<dict>
+		<key>author</key>
+		<string>Chris Kempson (http://chriskempson.com)</string>
 		<key>name</key>
-		<string>custom1</string>
+		<string>Base16 Midnight</string>
+		<key>semanticClass</key>
+		<string>base16.midnight.dark</string>
+		<key>colorSpaceName</key>
+		<string>sRGB</string>
+		<key>gutterSettings</key>
+		<dict>
+			<key>background</key>
+			<string>#393746</string>
+			<key>divider</key>
+			<string>#373746</string>
+			<key>foreground</key>
+			<string>#6D6D7E</string>
+			<key>selectionBackground</key>
+			<string>#565366</string>
+			<key>selectionForeground</key>
+			<string>#ACA5BA</string>
+		</dict>
 		<key>settings</key>
 		<array>
 			<dict>
@@ -321,12 +340,61 @@
 					<string>#FFFFFF</string>
 				</dict>
 			</dict>
+			<dict>
+				<key>name</key>
+				<string>GitGutter deleted</string>
+				<key>scope</key>
+				<string>markup.deleted.git_gutter</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#F92672</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>GitGutter inserted</string>
+				<key>scope</key>
+				<string>markup.inserted.git_gutter</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#A6E22E</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>GitGutter changed</string>
+				<key>scope</key>
+				<string>markup.changed.git_gutter</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#967EFB</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>GitGutter ignored</string>
+				<key>scope</key>
+				<string>markup.ignored.git_gutter</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#565656</string>
+				</dict>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>GitGutter untracked</string>
+				<key>scope</key>
+				<string>markup.untracked.git_gutter</string>
+				<key>settings</key>
+				<dict>
+					<key>foreground</key>
+					<string>#565656</string>
+				</dict>
+			</dict>
 		</array>
-		<key>uuid</key>
-		<string>D8D5E82E-3D5B-46B5-B38E-8C841C21347D</string>
-		<key>colorSpaceName</key>
-		<string>sRGB</string>
-		<key>semanticClass</key>
-		<string>theme.dark.custom1</string>
 	</dict>
 </plist>
