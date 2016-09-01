@@ -1,0 +1,386 @@
+@name "Base16 Midnight Dark"
+
+@uuid "59c1e2f2-7b41-46f9-91f2-1b4c6f5866f7"
+
+// Colors
+$bg: #33333F
+$bg-light: lighten($bg, 10%)
+$bg-lighter: lighten($bg, 15%)
+$bg-dark: darken($bg, 10%)
+$bg-darker: darken($bg, 15%)
+$fg: #E5E5E5
+$fg-light: lighten($fg, 20%)
+$fg-dark: darken($fg, 20%)
+$overlay: transparentize(#1F1B28, 0.05)
+
+$sunny-yellow: #FFC823
+$morning-yellow: lighten($sunny-yellow, 10%)
+$warning-yellow: transparentize($sunny-yellow, 0.1)
+
+$pale-red: #DD5E8C
+$fire-red: #FF3B6A
+$error-red: saturate($fire-red, 10%)
+$error-pink: transparentize($fire-red, 0.1)
+
+$calming-blue: #749BD0
+$sea-blue: #2F8CAA
+$gray-blue: #9797BA
+
+$brick-orange: #EE823A
+
+$grass-green: #A6E22E
+
+$dark-violet: #6E426C
+$violet: saturate($dark-violet, 70%)
+$light-violet: lighten($dark-violet, 20%)
+
+*
+    background: $bg
+    foreground: $fg
+    caret: $fire-red
+    invisibles: lighten($bg, 5%)
+    lineHighlight: lighten($bg, 15%)
+    selection: lighten($bg, 25%)
+    activeGuide: $brick-orange
+    bracketContentsForeground: $fg-light
+    bracketContentsOptions: underline
+    bracketsForeground: $fg
+    bracketsOptions: underline
+    findHighlight: $gray-blue
+    findHighlightForeground: $bg
+    guide: $dark-violet
+    gutterForeground: $fg-dark
+    selectionBorder: $bg-dark
+    stackGuide: $bg-light
+    tagsOptions: stippled_underline
+    popupCss: "html{color:#{$sunny-yellow};background-color:#{$overlay}}body{font-size:1.1em}a{color:#{$calming-blue}}h3{font-size:1.2em;color:#{$fg}}.signature{margin-top:4px}.doc_signature{font-size:1.2em;margin-top:4px;color:#{$sea-blue}}.error,.deleted{color:#{$fire-red}}.success,.inserted{color:#{$grass-green}}.warning,.modified{color:#{$sunny-yellow}}"
+anaconda
+    &.outline
+        &.illegal
+            foreground: $fg-light
+            background: $error-pink
+
+        &.warning
+            foreground: $fg-light
+            background: $warning-yellow
+
+        &.violation
+            foreground: $fg
+            background: $dark-violet
+
+    &.underline
+        &.illegal
+            background: $error-red
+
+        &.warning
+            background: $error-red
+
+        &.violation
+            background: $error-red
+
+punctuation
+    &.definition
+        &.entity, &.heading, &.comment
+            foreground: $gray-blue
+
+        &.bold
+            fontStyle: bold
+            foreground: $morning-yellow
+
+        &.italic
+            fontStyle: italic
+            foreground: $dark-violet
+
+        &.string, &.variable, &.parameters, &.array, &.accessor
+            foreground: $gray-blue
+
+        &.class-block.todone
+            foreground: $bg-lighter
+
+        &.note
+            &.raw
+                foreground: $bg-light
+
+            &.em
+                foreground: transparentize($pale-red, 0.7)
+
+        &.disaster.begin.todone
+            foreground: $fg-light
+            background: $error-red
+            fontStyle: bold
+
+    &.section.embedded
+        foreground: $light-violet
+
+    &.line-number.match.find-in-files
+        background: lighten($bg, 10%)
+        foreground: lighten($bg, 10%)
+
+comment
+    foreground: $calming-blue
+
+constant
+    &.character
+        foreground: $dark-violet
+
+        &.escape
+            foreground: $gray-blue
+
+    &.language
+        foreground: $dark-violet
+
+    &.numeric
+        foreground: $calming-blue
+
+        &.line-number
+            &.find-in-files
+                foreground: lighten($bg, 30%)
+
+            &.match.find-in-files
+                background: lighten($bg, 20%)
+                foreground: $fg
+
+    &.other
+        foreground: $dark-violet
+
+        &.color
+            foreground: $gray-blue
+
+        &.symbol
+            foreground: $sunny-yellow
+
+entity
+    &.name
+        &.class, &.type.class
+            fontStyle: underline
+            foreground: $sunny-yellow
+
+            &.todone
+                foreground: $fire-red
+
+        &.function
+            foreground: $sunny-yellow
+
+        &.tag
+            foreground: $fire-red
+
+        &.section
+            foreground: $gray-blue
+
+        &.task
+            &.lvl1.todone
+                foreground: $calming-blue
+
+            &.lvl2.todone
+                foreground: $sea-blue
+
+            &.lvl3.todone
+                foreground: $sunny-yellow
+
+            &.lvl4.todone
+                foreground: $brick-orange
+
+            &.lvl5.todone
+                background: $error-pink
+                foreground: $fg-light
+
+        &.filename.find-in-files
+            fontStyle: bold
+            background: $bg
+            foreground: $fire-red
+
+    &.other
+        &.attribute-name
+            foreground: $dark-violet
+
+        &.attribute-name.id
+            foreground: $gray-blue
+
+        &.inherited-class
+            fontStyle: italic underline
+            foreground: $brick-orange
+
+footer.find-in-files
+    background: $bg
+
+invalid
+    foreground: $fg-light
+    background: $error-red
+
+    &.deprecated
+        background: $violet
+
+keyword
+    foreground: $sea-blue
+
+    &.operator
+        foreground: $gray-blue
+
+        &.completed
+            &.todone
+                foreground: $grass-green
+
+            &.todone
+                foreground: transparentize($grass-green, 0.4)
+
+        &.ignore
+            &.todone
+                foreground: transparentize($pale-red, 0.3)
+
+            &.secondary.todone
+                foreground: transparentize($pale-red, 0.5)
+
+            &.desc.todone
+                foreground: transparentize($pale-red, 0.7)
+
+        &.task
+            foreground: $bg-light
+
+            &.lvl5.todone
+                foreground: $fire-red
+                fontStyle: bold
+
+            &.numeral
+                foreground: $bg-light
+
+    &.other
+        &.special-method
+            foreground: $gray-blue
+
+        &.unit
+            foreground: $light-violet
+
+markup
+    &.bold
+        fontStyle: bold
+        foreground: $morning-yellow
+
+    &.italic
+        fontStyle: italic
+        foreground: $dark-violet
+
+    &.list, &.quote
+        foreground: $light-violet
+
+    &.changed, &.changed.git_gutter
+        foreground: $violet
+
+    &.deleted, &.deleted.git_gutter
+        foreground: $error-red
+
+    &.heading, &.ignored, &.ignored.git_gutter
+        foreground: $gray-blue
+
+    &.raw.inline, &.inserted, &.inserted.git_gutter
+        foreground: $grass-green
+
+    &.untracked, &.untracked.git_gutter
+        foreground: $gray-blue
+
+match.find-in-files
+    background: lighten($bg, 5%)
+
+meta
+    &.require
+        foreground: $sunny-yellow
+
+    &.class
+        foreground: $sea-blue
+
+    &.link
+        foreground: $fire-red
+
+    &.selector
+        foreground: $calming-blue
+
+    &.separator
+        foreground: $fg-dark
+        background: $gray-blue
+
+    &.condition.disaster.todone
+        background: $bg-dark
+
+storage
+    foreground: $fire-red
+
+    &.type
+        fontStyle: italic
+        foreground: $sea-blue
+
+        &.task
+            foreground: $bg-lighter
+
+            &.completed.todone, &.ignore.todone
+                foreground: $bg-light
+
+    &.task-note
+        foreground: $dark-violet
+
+        &.em
+            foreground: transparentize($pale-red, 0.5)
+            fontStyle: italic
+
+            &.comment.todone
+                foreground: transparentize($pale-red, 0.5)
+                fontStyle: bold
+
+string
+    foreground: $morning-yellow
+
+    &.quoted.double
+        foreground: adjust-hue($morning-yellow, -10)
+
+    &.other.link
+        foreground: $calming-blue
+
+    &.regexp
+        foreground: $gray-blue
+
+    &.query.find-in-files
+        fontStyle: bold
+        foreground: $calming-blue
+
+sublimelinter
+    &.gutter-mark
+        foreground: $fg-light
+
+    &.mark.error
+        foreground: $error-red
+
+    &.mark.warning
+        foreground: $sunny-yellow
+
+support
+    &.constant
+        foreground: $dark-violet
+
+    &.function, &.other.variable
+        foreground: $calming-blue
+
+    &.type, &.class, &.function.any-method
+        foreground: $sunny-yellow
+
+variable
+    foreground: $fire-red
+
+    &.interpolation
+        foreground: $light-violet
+
+    &.parameter, &.function
+        foreground: $pale-red
+
+    &.total_files_count.find-in-files
+        fontStyle: bold
+        foreground: $sea-blue
+
+    &.matched_count.find-in-files
+        fontStyle: bold
+        foreground: $grass-green
+
+    &.matched_files_count.find-in-files
+        fontStyle: bold
+        foreground: $sea-blue
+
+    &.no_matches.find-in-files
+        fontStyle: bold
+        foreground: $error-red
