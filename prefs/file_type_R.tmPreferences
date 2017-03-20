@@ -7,11 +7,7 @@
         <key>settings</key>
         <dict>
             <key>icon</key>
-<<<<<<< 163e4a60b1ad936f020534897687b8d7dd04c0b2
-            <string>file_type_r</string>
-=======
             <string>file_type_R</string>
->>>>>>> Add file icons based on @marcofugaro's work
         </dict>
     </dict>
 </plist>
