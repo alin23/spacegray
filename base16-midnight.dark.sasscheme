@@ -13,12 +13,12 @@ $fg-light: lighten($fg, 20%)
 $fg-dark: darken($fg, 20%)
 $overlay: transparentize(#1F1B28, 0.05)
 
-$sunny-yellow: #FFC823
+$sunny-yellow: #FFC30F
 $morning-yellow: lighten($sunny-yellow, 10%)
 $warning-yellow: transparentize($sunny-yellow, 0.1)
 
-$pale-red: #DD5E8C
-$fire-red: #FF3B6A
+$pale-red: #DD3C76
+$fire-red: #FF295C
 $error-red: saturate($fire-red, 10%)
 $error-pink: transparentize($fire-red, 0.1)
 
@@ -30,9 +30,9 @@ $brick-orange: #EE823A
 
 $grass-green: #A6E22E
 
-$dark-violet: #6E426C
-$violet: saturate($dark-violet, 70%)
-$light-violet: lighten($dark-violet, 20%)
+$faded-blue: #A3ABD7
+$saturated-blue: saturate($faded-blue, 70%)
+$light-faded-blue: lighten($faded-blue, 20%)
 
 *
     background: $bg
@@ -48,7 +48,7 @@ $light-violet: lighten($dark-violet, 20%)
     bracketsOptions: underline
     findHighlight: $gray-blue
     findHighlightForeground: $bg
-    guide: $dark-violet
+    guide: $faded-blue
     gutterForeground: $fg-dark
     selectionBorder: $bg-dark
     stackGuide: $bg-light
@@ -66,7 +66,7 @@ anaconda
 
         &.violation
             foreground: $fg
-            background: $dark-violet
+            background: $faded-blue
 
     &.underline
         &.illegal
@@ -89,7 +89,7 @@ punctuation
 
         &.italic
             fontStyle: italic
-            foreground: $dark-violet
+            foreground: $faded-blue
 
         &.string, &.variable, &.parameters, &.array, &.accessor
             foreground: $gray-blue
@@ -110,7 +110,7 @@ punctuation
             fontStyle: bold
 
     &.section.embedded
-        foreground: $light-violet
+        foreground: $light-faded-blue
 
     &.line-number.match.find-in-files
         background: lighten($bg, 10%)
@@ -121,13 +121,13 @@ comment
 
 constant
     &.character
-        foreground: $dark-violet
+        foreground: $faded-blue
 
         &.escape
             foreground: $gray-blue
 
     &.language
-        foreground: $dark-violet
+        foreground: $faded-blue
 
     &.numeric
         foreground: $calming-blue
@@ -141,7 +141,7 @@ constant
                 foreground: $fg
 
     &.other
-        foreground: $dark-violet
+        foreground: $faded-blue
 
         &.color
             foreground: $gray-blue
@@ -191,7 +191,7 @@ entity
 
     &.other
         &.attribute-name
-            foreground: $dark-violet
+            foreground: $faded-blue
 
         &.attribute-name.id
             foreground: $gray-blue
@@ -208,7 +208,7 @@ invalid
     background: $error-red
 
     &.deprecated
-        background: $violet
+        background: $saturated-blue
 
 keyword
     foreground: $sea-blue
@@ -248,7 +248,7 @@ keyword
             foreground: $gray-blue
 
         &.unit
-            foreground: $light-violet
+            foreground: $light-faded-blue
 
 markup
     &.bold
@@ -257,13 +257,13 @@ markup
 
     &.italic
         fontStyle: italic
-        foreground: $dark-violet
+        foreground: $faded-blue
 
     &.list, &.quote
-        foreground: $light-violet
+        foreground: $light-faded-blue
 
     &.changed, &.changed.git_gutter
-        foreground: $violet
+        foreground: $saturated-blue
 
     &.deleted, &.deleted.git_gutter
         foreground: $error-red
@@ -314,7 +314,7 @@ storage
                 foreground: $bg-light
 
     &.task-note
-        foreground: $dark-violet
+        foreground: $faded-blue
 
         &.em
             foreground: transparentize($pale-red, 0.5)
@@ -352,7 +352,7 @@ sublimelinter
 
 support
     &.constant
-        foreground: $dark-violet
+        foreground: $faded-blue
 
     &.function, &.other.variable
         foreground: $calming-blue
@@ -364,7 +364,7 @@ variable
     foreground: $fire-red
 
     &.interpolation
-        foreground: $light-violet
+        foreground: $light-faded-blue
 
     &.parameter, &.function
         foreground: $pale-red
