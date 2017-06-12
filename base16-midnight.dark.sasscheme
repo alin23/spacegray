@@ -3,22 +3,22 @@
 @uuid "59c1e2f2-7b41-46f9-91f2-1b4c6f5866f7"
 
 // Colors
-$bg: #33333F
+$bg: #212129
 $bg-light: lighten($bg, 10%)
 $bg-lighter: lighten($bg, 15%)
 $bg-dark: darken($bg, 10%)
 $bg-darker: darken($bg, 15%)
-$fg: #E5E5E5
+$fg: #F0F0F0
 $fg-light: lighten($fg, 20%)
 $fg-dark: darken($fg, 20%)
 $overlay: transparentize(#1F1B28, 0.05)
 
-$sunny-yellow: #FFC30F
+$sunny-yellow: #FFAF0F
 $morning-yellow: lighten($sunny-yellow, 10%)
 $warning-yellow: transparentize($sunny-yellow, 0.1)
 
-$pale-red: #DD3C76
-$fire-red: #FF295C
+$pale-red: #DD3C52
+$fire-red: #FF3348
 $error-red: saturate($fire-red, 10%)
 $error-pink: transparentize($fire-red, 0.1)
 
@@ -39,9 +39,9 @@ $light-faded-blue: lighten($faded-blue, 20%)
     foreground: $fg
     caret: $fire-red
     invisibles: lighten($bg, 5%)
-    lineHighlight: lighten($bg, 15%)
+    lineHighlight: lighten($bg, 5%)
     selection: lighten($bg, 25%)
-    activeGuide: $brick-orange
+    activeGuide: transparentize($fire-red, 0.6)
     bracketContentsForeground: $fg-light
     bracketContentsOptions: underline
     bracketsForeground: $fg
@@ -49,11 +49,12 @@ $light-faded-blue: lighten($faded-blue, 20%)
     findHighlight: $gray-blue
     findHighlightForeground: $bg
     guide: $faded-blue
-    gutterForeground: $fg-dark
+    gutterForeground: $bg-lighter
     selectionBorder: $bg-dark
-    stackGuide: $bg-light
+    stackGuide: transparentize($bg, 1)
     tagsOptions: stippled_underline
     popupCss: "html{color:#{$sunny-yellow};background-color:#{$overlay}}body{font-size:1.1em}a{color:#{$calming-blue}}h3{font-size:1.2em;color:#{$fg}}.signature{margin-top:4px}.doc_signature{font-size:1.2em;margin-top:4px;color:#{$sea-blue}}.error,.deleted{color:#{$fire-red}}.success,.inserted{color:#{$grass-green}}.warning,.modified{color:#{$sunny-yellow}}"
+
 anaconda
     &.outline
         &.illegal
@@ -133,8 +134,9 @@ constant
         foreground: $calming-blue
 
         &.line-number
+            foreground: $bg-lighter
             &.find-in-files
-                foreground: lighten($bg, 30%)
+                foreground: $bg-lighter
 
             &.match.find-in-files
                 background: lighten($bg, 20%)
