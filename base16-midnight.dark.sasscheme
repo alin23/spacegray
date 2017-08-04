@@ -3,66 +3,64 @@
 @uuid "59c1e2f2-7b41-46f9-91f2-1b4c6f5866f7"
 
 // Colors
-$bg: #212129
+$bg: #1F1C26
+$fg: #FFFFFF
+$variable: #FF6372
+$class: #FFAF0F
+$comment: #635979
+$keyword: #B8A8FF
+$inherited-class: #EE823A
+$numeric: #A6E22E
+$type: #4E7DED
+$string: #F78C49
+$function: #FFB86C
+$punctuation: #C6C6F3
+
 $bg-light: lighten($bg, 10%)
 $bg-lighter: lighten($bg, 15%)
 $bg-dark: darken($bg, 10%)
 $bg-darker: darken($bg, 15%)
-$fg: #F0F0F0
-$fg-light: lighten($fg, 20%)
 $fg-dark: darken($fg, 20%)
 $overlay: transparentize(#1F1B28, 0.05)
 
-$sunny-yellow: #FFAF0F
-$morning-yellow: lighten($sunny-yellow, 10%)
-$warning-yellow: transparentize($sunny-yellow, 0.1)
+$warning-yellow: transparentize($class, 0.1)
 
-$pale-red: #DD3C52
-$fire-red: #FF3348
-$error-red: saturate($fire-red, 10%)
-$error-pink: transparentize($fire-red, 0.1)
+$error-red: saturate($variable, 10%)
+$error-pink: transparentize($variable, 0.1)
 
-$calming-blue: #749BD0
-$sea-blue: #2F8CAA
-$gray-blue: #9797BA
-
-$brick-orange: #EE823A
-
-$grass-green: #A6E22E
-
-$faded-blue: #A3ABD7
+$faded-blue: #94BFD7
 $saturated-blue: saturate($faded-blue, 70%)
 $light-faded-blue: lighten($faded-blue, 20%)
 
 *
     background: $bg
     foreground: $fg
-    caret: $fire-red
+    caret: $variable
     invisibles: lighten($bg, 5%)
     lineHighlight: lighten($bg, 5%)
     selection: lighten($bg, 25%)
-    activeGuide: transparentize($fire-red, 0.6)
-    bracketContentsForeground: $fg-light
+    activeGuide: transparentize($variable, 0.6)
+    bracketContentsForeground: $fg
     bracketContentsOptions: underline
     bracketsForeground: $fg
     bracketsOptions: underline
-    findHighlight: $gray-blue
+    findHighlight: $punctuation
     findHighlightForeground: $bg
     guide: $faded-blue
     gutterForeground: $bg-lighter
     selectionBorder: $bg-dark
     stackGuide: transparentize($bg, 1)
     tagsOptions: stippled_underline
-    popupCss: "html{color:#{$sunny-yellow};background-color:#{$overlay}}body{font-size:1.1em}a{color:#{$calming-blue}}h3{font-size:1.2em;color:#{$fg}}.signature{margin-top:4px}.doc_signature{font-size:1.2em;margin-top:4px;color:#{$sea-blue}}.error,.deleted{color:#{$fire-red}}.success,.inserted{color:#{$grass-green}}.warning,.modified{color:#{$sunny-yellow}}"
+    popupCss: "html{color:#{$class};background-color:#{$overlay}}body{font-size:1.1em}a{color:#{$comment}}h3{font-size:1.2em;color:#{$fg}}.signature{margin-top:4px}.doc_signature{font-size:1.2em;margin-top:4px;color:#{$keyword}}.error,.deleted{color:#{$variable}}.success,.inserted{color:#{$numeric}}.warning,.modified{color:#{$class}}"
 
 anaconda
     &.outline
         &.illegal
-            foreground: $fg-light
+            foreground: $fg
             background: $error-pink
 
         &.warning
-            foreground: $fg-light
+            foreground: $fg
             background: $warning-yellow
 
         &.violation
@@ -80,20 +78,24 @@ anaconda
             background: $error-red
 
 punctuation
+    foreground: $punctuation
     &.definition
+        &.comment
+            foreground: lighten($comment, 5%)
+
         &.entity, &.heading, &.comment
-            foreground: $gray-blue
+            foreground: $punctuation
 
         &.bold
             fontStyle: bold
-            foreground: $morning-yellow
+            foreground: $string
 
         &.italic
             fontStyle: italic
             foreground: $faded-blue
 
         &.string, &.variable, &.parameters, &.array, &.accessor
-            foreground: $gray-blue
+            foreground: $punctuation
 
         &.class-block.todone
             foreground: $bg-lighter
@@ -103,10 +105,10 @@ punctuation
                 foreground: $bg-light
 
             &.em
-                foreground: transparentize($pale-red, 0.7)
+                foreground: transparentize($function, 0.7)
 
         &.disaster.begin.todone
-            foreground: $fg-light
+            foreground: $fg
             background: $error-red
             fontStyle: bold
 
@@ -118,20 +120,24 @@ punctuation
         foreground: lighten($bg, 10%)
 
 comment
-    foreground: $calming-blue
+    foreground: $comment
+
+    &.line.number-sign,
+    &.block.documentation
+        foreground: lighten($comment, 5%)
 
 constant
     &.character
         foreground: $faded-blue
 
         &.escape
-            foreground: $gray-blue
+            foreground: $punctuation
 
     &.language
-        foreground: $faded-blue
+        foreground: darken($keyword, 15%)
 
     &.numeric
-        foreground: $calming-blue
+        foreground: $numeric
 
         &.line-number
             foreground: $bg-lighter
@@ -146,100 +152,105 @@ constant
         foreground: $faded-blue
 
         &.color
-            foreground: $gray-blue
+            foreground: $punctuation
 
         &.symbol
-            foreground: $sunny-yellow
+            foreground: $class
 
 entity
     &.name
-        &.class, &.type.class
-            fontStyle: underline
-            foreground: $sunny-yellow
+        &.class
+            fontStyle: italic
+            foreground: $class
+
+        &.type
+            fontStyle: italic
+            foreground: $type
 
             &.todone
-                foreground: $fire-red
+                foreground: $variable
 
         &.function
-            foreground: $sunny-yellow
+            fontStyle: italic
+            foreground: $class
 
         &.tag
-            foreground: $fire-red
+            foreground: $variable
 
         &.section
-            foreground: $gray-blue
+            foreground: $punctuation
 
         &.task
             &.lvl1.todone
-                foreground: $calming-blue
+                foreground: $comment
 
             &.lvl2.todone
-                foreground: $sea-blue
+                foreground: $keyword
 
             &.lvl3.todone
-                foreground: $sunny-yellow
+                foreground: $class
 
             &.lvl4.todone
-                foreground: $brick-orange
+                foreground: $inherited-class
 
             &.lvl5.todone
                 background: $error-pink
-                foreground: $fg-light
+                foreground: $fg
 
         &.filename.find-in-files
             fontStyle: bold
             background: $bg
-            foreground: $fire-red
+            foreground: $variable
 
     &.other
         &.attribute-name
             foreground: $faded-blue
 
         &.attribute-name.id
-            foreground: $gray-blue
+            foreground: $punctuation
 
         &.inherited-class
             fontStyle: italic underline
-            foreground: $brick-orange
+            foreground: $inherited-class
 
 footer.find-in-files
     background: $bg
 
 invalid
-    foreground: $fg-light
+    foreground: $fg
     background: $error-red
 
     &.deprecated
         background: $saturated-blue
 
 keyword
-    foreground: $sea-blue
+    foreground: $keyword
 
     &.operator
-        foreground: $gray-blue
+        foreground: $punctuation
 
         &.completed
             &.todone
-                foreground: $grass-green
+                foreground: $numeric
 
             &.todone
-                foreground: transparentize($grass-green, 0.4)
+                foreground: transparentize($numeric, 0.4)
 
         &.ignore
             &.todone
-                foreground: transparentize($pale-red, 0.3)
+                foreground: transparentize($function, 0.3)
 
             &.secondary.todone
-                foreground: transparentize($pale-red, 0.5)
+                foreground: transparentize($function, 0.5)
 
             &.desc.todone
-                foreground: transparentize($pale-red, 0.7)
+                foreground: transparentize($function, 0.7)
 
         &.task
             foreground: $bg-light
 
             &.lvl5.todone
-                foreground: $fire-red
+                foreground: $variable
                 fontStyle: bold
 
             &.numeral
@@ -247,7 +258,7 @@ keyword
 
     &.other
         &.special-method
-            foreground: $gray-blue
+            foreground: $punctuation
 
         &.unit
             foreground: $light-faded-blue
@@ -255,7 +266,7 @@ keyword
 markup
     &.bold
         fontStyle: bold
-        foreground: $morning-yellow
+        foreground: $string
 
     &.italic
         fontStyle: italic
@@ -271,43 +282,44 @@ markup
         foreground: $error-red
 
     &.heading, &.ignored, &.ignored.git_gutter
-        foreground: $gray-blue
+        foreground: $punctuation
 
     &.raw.inline, &.inserted, &.inserted.git_gutter
-        foreground: $grass-green
+        foreground: $numeric
 
     &.untracked, &.untracked.git_gutter
-        foreground: $gray-blue
+        foreground: $punctuation
 
 match.find-in-files
     background: lighten($bg, 5%)
 
 meta
     &.require
-        foreground: $sunny-yellow
+        foreground: $class
 
     &.class
-        foreground: $sea-blue
+        foreground: $keyword
 
     &.link
-        foreground: $fire-red
+        foreground: $variable
 
     &.selector
-        foreground: $calming-blue
+        foreground: $comment
 
     &.separator
         foreground: $fg-dark
-        background: $gray-blue
+        background: $punctuation
 
     &.condition.disaster.todone
         background: $bg-dark
 
 storage
-    foreground: $fire-red
+    fontStyle: italic
+    foreground: $variable
 
     &.type
         fontStyle: italic
-        foreground: $sea-blue
+        foreground: $keyword
 
         &.task
             foreground: $bg-lighter
@@ -319,69 +331,80 @@ storage
         foreground: $faded-blue
 
         &.em
-            foreground: transparentize($pale-red, 0.5)
+            foreground: transparentize($function, 0.5)
             fontStyle: italic
 
             &.comment.todone
-                foreground: transparentize($pale-red, 0.5)
+                foreground: transparentize($function, 0.5)
                 fontStyle: bold
 
 string
-    foreground: $morning-yellow
+    foreground: $string
 
     &.quoted.double
-        foreground: adjust-hue($morning-yellow, -10)
+        foreground: adjust-hue($string, -10)
 
     &.other.link
-        foreground: $calming-blue
+        foreground: $comment
 
     &.regexp
-        foreground: $gray-blue
+        foreground: $punctuation
 
     &.query.find-in-files
         fontStyle: bold
-        foreground: $calming-blue
+        foreground: $comment
 
 sublimelinter
     &.gutter-mark
-        foreground: $fg-light
+        foreground: $fg
 
     &.mark.error
         foreground: $error-red
 
     &.mark.warning
-        foreground: $sunny-yellow
+        foreground: $class
 
 support
     &.constant
         foreground: $faded-blue
 
     &.function, &.other.variable
-        foreground: $calming-blue
+        fontStyle: italic
+        foreground: $variable
 
-    &.type, &.class, &.function.any-method
-        foreground: $sunny-yellow
+    &.type
+        fontStyle: italic
+        foreground: $type
+
+    &.class, &.function.any-method
+        fontStyle: italic
+        foreground: adjust-hue($class, -5)
 
 variable
-    foreground: $fire-red
+    fontStyle: italic
+    foreground: $variable
 
     &.interpolation
         foreground: $light-faded-blue
 
-    &.parameter, &.function
-        foreground: $pale-red
+    &.annotation, &.function
+        fontStyle: italic
+        foreground: $function
+
+    &.parameter
+        foreground: $faded-blue
 
     &.total_files_count.find-in-files
         fontStyle: bold
-        foreground: $sea-blue
+        foreground: $keyword
 
     &.matched_count.find-in-files
         fontStyle: bold
-        foreground: $grass-green
+        foreground: $numeric
 
     &.matched_files_count.find-in-files
         fontStyle: bold
-        foreground: $sea-blue
+        foreground: $keyword
 
     &.no_matches.find-in-files
         fontStyle: bold
