@@ -1,39 +1,37 @@
-@name "Base16 Midnight Dark"
+@name "Base16 Mauve Dark"
 
 @uuid "59c1e2f2-7b41-46f9-91f2-1b4c6f5866f7"
 
 // Colors
-$bg: #1F1C26
-$fg: #FFFFFF
-$variable-language: #FF6372
-$variable: desaturate($variable-language, 15%)
-$variable-readwrite: adjust-hue($variable, 10)
-$class: #FFAA00
-$comment: #635979
-$keyword: #877DB8
-$inherited-class: #EE823A
-$numeric: #A6E22E
-$type: #4E7DED
-$string: #F78C49
-$function: #FFB86C
-$punctuation: #C6C6F3
-$constant: #7849D9
-
+$bg: #151125
 $bg-light: lighten($bg, 10%)
 $bg-lighter: lighten($bg, 15%)
 $bg-dark: darken($bg, 10%)
 $bg-darker: darken($bg, 15%)
+$fg: #FFFFFF
 $fg-dark: darken($fg, 20%)
-$overlay: transparentize(#1F1B28, 0.05)
+$overlay: transparentize(#151125, 0.05)
 
-$warning-yellow: transparentize($class, 0.1)
+$string-single-quote: #FACA60
+$string-double-quote: #FFB86C
+$warning-yellow: #FFAF0F
 
+$function: #FF45A8
+$variable: #FF005F
 $error-red: saturate($variable, 10%)
 $error-pink: transparentize($variable, 0.1)
 
-$faded-blue: #7990CD
-$saturated-blue: saturate($faded-blue, 70%)
-$light-faded-blue: lighten($faded-blue, 20%)
+$comment: #949E9B
+$keyword: #B8A8FF
+$punctuation: #AF5FFF
+
+$inherited-class: #EE823A
+
+$green: #5FD75F
+
+$constant: #A3ABD7
+$saturated-constant: saturate($constant, 70%)
+$light-constant: lighten($constant, 20%)
 
 *
     background: $bg
@@ -49,12 +47,12 @@ $light-faded-blue: lighten($faded-blue, 20%)
     bracketsOptions: underline
     findHighlight: $punctuation
     findHighlightForeground: $bg
-    guide: $faded-blue
+    guide: $constant
     gutterForeground: $bg-lighter
     selectionBorder: $bg-dark
     stackGuide: transparentize($bg, 1)
     tagsOptions: stippled_underline
-    popupCss: "html{color:#{$class};background-color:#{$overlay}}body{font-size:1.1em}a{color:#{$comment}}h3{font-size:1.2em;color:#{$fg}}.signature{margin-top:4px}.doc_signature{font-size:1.2em;margin-top:4px;color:#{$keyword}}.error,.deleted{color:#{$variable}}.success,.inserted{color:#{$numeric}}.warning,.modified{color:#{$class}}"
+    popupCss: "html{color:#{$string-single-quote};background-color:#{$overlay}}body{font-size:1.1em}a{color:#{$comment}}h3{font-size:1.2em;color:#{$fg}}.signature{margin-top:4px}.doc_signature{font-size:1.2em;margin-top:4px;color:#{$keyword}}.error,.deleted{color:#{$variable}}.success,.inserted{color:#{$green}}.warning,.modified{color:#{$string-single-quote}}"
 
 anaconda
     &.outline
@@ -68,7 +66,7 @@ anaconda
 
         &.violation
             foreground: $fg
-            background: $faded-blue
+            background: $constant
 
     &.underline
         &.illegal
@@ -81,21 +79,17 @@ anaconda
             background: $error-red
 
 punctuation
-    foreground: $punctuation
     &.definition
-        &.comment
-            foreground: lighten($comment, 5%)
-
         &.entity, &.heading, &.comment
             foreground: $punctuation
 
         &.bold
             fontStyle: bold
-            foreground: $string
+            foreground: $string-single-quote
 
         &.italic
             fontStyle: italic
-            foreground: $faded-blue
+            foreground: $constant
 
         &.string, &.variable, &.parameters, &.array, &.accessor
             foreground: $punctuation
@@ -116,7 +110,7 @@ punctuation
             fontStyle: bold
 
     &.section.embedded
-        foreground: $light-faded-blue
+        foreground: $light-constant
 
     &.line-number.match.find-in-files
         background: lighten($bg, 10%)
@@ -125,13 +119,9 @@ punctuation
 comment
     foreground: $comment
 
-    &.line.number-sign,
-    &.block.documentation
-        foreground: lighten($comment, 5%)
-
 constant
     &.character
-        foreground: $faded-blue
+        foreground: $constant
 
         &.escape
             foreground: $punctuation
@@ -140,7 +130,7 @@ constant
         foreground: $constant
 
     &.numeric
-        foreground: $numeric
+        foreground: $comment
 
         &.line-number
             foreground: $bg-lighter
@@ -152,30 +142,25 @@ constant
                 foreground: $fg
 
     &.other
-        foreground: $faded-blue
+        foreground: $constant
 
         &.color
             foreground: $punctuation
 
         &.symbol
-            foreground: $class
+            foreground: $string-single-quote
 
 entity
     &.name
-        &.class
-            fontStyle: italic
-            foreground: $class
-
-        &.type
-            fontStyle: italic
-            foreground: $type
+        &.class, &.type.class
+            fontStyle: underline
+            foreground: $string-single-quote
 
             &.todone
                 foreground: $variable
 
         &.function
-            fontStyle: italic
-            foreground: $function
+            foreground: $string-single-quote
 
         &.tag
             foreground: $variable
@@ -191,7 +176,7 @@ entity
                 foreground: $keyword
 
             &.lvl3.todone
-                foreground: $class
+                foreground: $string-single-quote
 
             &.lvl4.todone
                 foreground: $inherited-class
@@ -207,7 +192,7 @@ entity
 
     &.other
         &.attribute-name
-            foreground: $faded-blue
+            foreground: $constant
 
         &.attribute-name.id
             foreground: $punctuation
@@ -224,7 +209,7 @@ invalid
     background: $error-red
 
     &.deprecated
-        background: $saturated-blue
+        background: $saturated-constant
 
 keyword
     foreground: $keyword
@@ -234,10 +219,10 @@ keyword
 
         &.completed
             &.todone
-                foreground: $numeric
+                foreground: $green
 
             &.todone
-                foreground: transparentize($numeric, 0.4)
+                foreground: transparentize($green, 0.4)
 
         &.ignore
             &.todone
@@ -264,22 +249,22 @@ keyword
             foreground: $punctuation
 
         &.unit
-            foreground: $light-faded-blue
+            foreground: $light-constant
 
 markup
     &.bold
         fontStyle: bold
-        foreground: $string
+        foreground: $string-single-quote
 
     &.italic
         fontStyle: italic
-        foreground: $faded-blue
+        foreground: $constant
 
     &.list, &.quote
-        foreground: $light-faded-blue
+        foreground: $light-constant
 
     &.changed, &.changed.git_gutter
-        foreground: $saturated-blue
+        foreground: $saturated-constant
 
     &.deleted, &.deleted.git_gutter
         foreground: $error-red
@@ -288,7 +273,7 @@ markup
         foreground: $punctuation
 
     &.raw.inline, &.inserted, &.inserted.git_gutter
-        foreground: $numeric
+        foreground: $green
 
     &.untracked, &.untracked.git_gutter
         foreground: $punctuation
@@ -298,7 +283,7 @@ match.find-in-files
 
 meta
     &.require
-        foreground: $class
+        foreground: $string-single-quote
 
     &.class
         foreground: $keyword
@@ -317,7 +302,6 @@ meta
         background: $bg-dark
 
 storage
-    fontStyle: italic
     foreground: $variable
 
     &.type
@@ -331,7 +315,7 @@ storage
                 foreground: $bg-light
 
     &.task-note
-        foreground: $faded-blue
+        foreground: $constant
 
         &.em
             foreground: transparentize($function, 0.5)
@@ -342,10 +326,10 @@ storage
                 fontStyle: bold
 
 string
-    foreground: $string
+    foreground: $string-single-quote
 
     &.quoted.double
-        foreground: adjust-hue($string, -10)
+        foreground: $string-double-quote
 
     &.other.link
         foreground: $comment
@@ -365,54 +349,27 @@ sublimelinter
         foreground: $error-red
 
     &.mark.warning
-        foreground: $class
+        foreground: $string-single-quote
 
 support
     &.constant
-        foreground: $faded-blue
+        foreground: $constant
 
     &.function, &.other.variable
-        fontStyle: italic
-        foreground: $variable
+        foreground: $comment
 
-    &.type
-        fontStyle: italic
-        foreground: $type
-
-    &.class, &.function.any-method
-        fontStyle: italic
-        foreground: adjust-hue($class, -5)
+    &.type, &.class, &.function.any-method
+        foreground: $string-single-quote
 
 variable
-    fontStyle: italic
     foreground: $variable
 
-    &.other
-        &.class
-            foreground: $class
-        &.property
-            foreground: $inherited-class
-        &.constant
-            foreground: $constant
-        &.member
-            foreground: $fg
-        &.readwrite, &.object
-            foreground: $variable-readwrite
-
-    &.language
-        foreground: $variable-language
-        &.member
-            foreground: $type
-
     &.interpolation
-        foreground: $light-faded-blue
+        foreground: $light-constant
 
-    &.annotation, &.function
+    &.parameter, &.function
         fontStyle: italic
         foreground: $function
-
-    &.parameter
-        foreground: $faded-blue
 
     &.total_files_count.find-in-files
         fontStyle: bold
@@ -420,7 +377,7 @@ variable
 
     &.matched_count.find-in-files
         fontStyle: bold
-        foreground: $numeric
+        foreground: $green
 
     &.matched_files_count.find-in-files
         fontStyle: bold
